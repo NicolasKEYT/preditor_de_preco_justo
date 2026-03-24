@@ -1,3 +1,22 @@
+# ==============================================================================
+# Disciplina: Inteligência Artificial
+# Integrantes:
+# - Gabriel Neman Silva - 10403348 (Turma 7K)
+# - Nicolas Gonçalves - 10418047 (Turma 7K)
+# - Gabriel Pastorelli - 10419046 (Turma 7K)
+# - Nicolai Zeroshenko - 10417221 (Turma 7J)
+#
+# Síntese: Script de raspagem de dados Web Scraping utilizando Selenium e 
+# undetected_chromedriver. Coleta anúncios de Toyota Corolla Sedã em São Paulo 
+# a partir da plataforma Webmotors, extraindo preço, ano, versão e quilometragem
+# de forma automatizada e com bypass de sistemas anti-bot.
+#
+# Histórico de Alterações:
+# - 22/03/2026 | Gabriel Neman Silva | Criação da estrutura base e mapeamento HTML.
+# - 22/03/2026 | Nicolas Gonçalves   | Implementação do loop de paginação e bypass.
+# - 24/03/2026 | Grupo               | Revisão final da extração e formatação do cabeçalho.
+# ==============================================================================
+
 import time
 import re
 import pandas as pd
@@ -11,7 +30,6 @@ import os
 # ─── DEFINA O INTERVALO DE PÁGINAS AQUI ──────────────────────────────────────
 pagina_inicial = 1
 pagina_final   = 20
-# ─────────────────────────────────────────────────────────────────────────────
 
 arquivo_csv = 'dataset_corolla_sp_bruto.csv'
 
