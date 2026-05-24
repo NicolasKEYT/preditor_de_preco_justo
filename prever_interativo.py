@@ -1,3 +1,21 @@
+# ============================================================================
+# UNIVERSIDADE PRESBITERIANA MACKENZIE — FCI
+# Disciplina: Inteligência Artificial — Prof. Dr. Leandro Zerbinatti
+# Projeto: Modelo Preditivo de Precificação de Veículos Usados
+#
+# Integrantes:
+#   - Gabriel Neman      — RA [10403348]
+#   - Nicolas Gonçalves  — RA [10418047]
+#   - Nicolai Zeroshenko — RA [10417221]
+#   - Gabriel Pastoreli  — RA [10419046]
+#
+# Descrição: Interface CLI para inferência do modelo. Filtros dinâmicos
+#            por ano, versão e câmbio. Retorna o preço justo estimado.
+#
+# Histórico:
+#   2026-05-14 — Nicolai Zeroshenko — N2: Criação da interface com filtros dinâmicos
+#   2026-05-24 — Nicolai Zeroshenko — N2: Testes finais de validação do modelo
+# ============================================================================
 import pandas as pd
 import joblib
 
