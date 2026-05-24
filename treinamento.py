@@ -1,3 +1,21 @@
+# ============================================================================
+# UNIVERSIDADE PRESBITERIANA MACKENZIE — FCI
+# Disciplina: Inteligência Artificial — Prof. Dr. Leandro Zerbinatti
+# Projeto: Modelo Preditivo de Precificação de Veículos Usados
+#
+# Integrantes:
+#   - Gabriel Neman      — RA [10403348]
+#   - Nicolas Gonçalves  — RA [10418047]
+#   - Nicolai Zeroshenko — RA [10417221]
+#   - Gabriel Pastoreli  — RA [10419046]
+#
+# Descrição: Treinamento do RandomForestRegressor. Gera modelo_corolla.pkl
+#            e colunas_treinamento.pkl.
+#
+# Histórico:
+#   2026-05-14 — Nicolas Gonçalves — N2: Criação do pipeline de treinamento
+#   2026-05-24 — Nicolas Gonçalves — N2: Validação final (R² 93,96% / MAE R$ 5.619,09)
+# ============================================================================
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
