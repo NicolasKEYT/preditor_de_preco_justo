@@ -1,3 +1,21 @@
+# ============================================================================
+# UNIVERSIDADE PRESBITERIANA MACKENZIE — FCI
+# Disciplina: Inteligência Artificial — Prof. Dr. Leandro Zerbinatti
+# Projeto: Modelo Preditivo de Precificação de Veículos Usados
+#
+# Integrantes:
+#   - Gabriel Neman      — RA [10403348]
+#   - Nicolas Gonçalves  — RA [10418047]
+#   - Nicolai Zeroshenko — RA [10417221]
+#   - Gabriel Pastoreli  — RA [10419046]
+# Descrição: Pipeline ETL. Limpeza, remoção de outliers (IQR + FIPE) e
+#            tipagem do dataset bruto. Gera COROLLA_SP_ML_FINAL.csv.
+#
+# Histórico:
+#   2026-03-24 — Pastoreli — N1: Versão inicial com filtros de preço fixos
+#   2026-05-14 — Pastoreli — N2: Substituição por IQR + filtro FIPE 50%-150%
+#   2026-05-24 — Pastoreli — N2: Validação final (3.311 anúncios limpos)
+# ============================================================================
 import pandas as pd
 
 # ==============================================================================
