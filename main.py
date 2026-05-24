@@ -1,3 +1,21 @@
+# ============================================================================
+# UNIVERSIDADE PRESBITERIANA MACKENZIE — FCI
+# Disciplina: Inteligência Artificial — Prof. Dr. Leandro Zerbinatti
+# Projeto: Modelo Preditivo de Precificação de Veículos Usados
+#
+# Integrantes:
+#   - Gabriel Neman      — RA [10403348]
+#   - Nicolas Gonçalves  — RA [10418047]
+#   - Nicolai Zeroshenko — RA [10417221]
+#   - Gabriel Pastoreli  — RA [10419046]
+#
+# Descrição: Extração de dados via API REST da Webmotors. Gera COROLLA_SP_BRUTO.csv.
+#
+# Histórico:
+#   2026-03-24 — Gabriel Neman  — N1: Versão inicial com Selenium + BeautifulSoup
+#   2026-05-14 — Gabriel Neman  — N2: Refatoração para consumo direto da API REST
+#   2026-05-24 — Gabriel Neman  — N2: Validação final (3.470 anúncios coletados)
+# ============================================================================
 import os
 import requests
 import pandas as pd
