@@ -1,42 +1,52 @@
-# 🚗 Preditor de Preço Justo: Toyota Corolla Sedã (SP)
+🚗 Preditor de Preço Justo: Toyota Corolla Sedã (SP)
+👥 Equipe
+7K - Gabriel Neman Silva - 10403348
 
-## 👥 Equipe
-* 7K - Gabriel Neman Silva - 10403348
-* 7K - Nicolas Gonçalves - 10418047
-* 7K - Gabriel Pastorelli - 10419046
-* 7J - Nicolai  Zeroshenko - 10417221
+7K - Nicolas Gonçalves - 10418047
 
-## 📌 Sobre o Projeto
-Este projeto tem como objetivo desenvolver um modelo de *Machine Learning* (Regressão) capaz de estimar o preço justo de revenda do **Toyota Corolla Sedã** no mercado de São Paulo. 
+7K - Gabriel Pastorelli - 10419046
 
-O mercado de usados sofre de assimetria de informação e ferramentas estáticas como a Tabela FIPE falham ao não considerar a quilometragem exata e as diferentes versões de um veículo. Nossa solução extrai dados reais de mercado para criar um precificador inteligente.
+7J - Nicolai Zeroshenko - 10417221
 
-## 🛠️ Tecnologias Utilizadas
-* **Extração de Dados:** Python, Selenium, Undetected Chromedriver, BeautifulSoup.
-* **Análise e Limpeza (EDA):** Pandas, NumPy.
-* **Visualização de Dados:** Matplotlib, Seaborn.
-* **Machine Learning (Fase N2):** Scikit-Learn (A implementar).
+📌 Sobre o Projeto
+Este projeto tem como objetivo desenvolver um modelo de Machine Learning (Regressão) capaz de estimar o preço justo de revenda do Toyota Corolla Sedã no mercado do estado de São Paulo.
 
-## 📂 Estrutura do Repositório
-* `scraper_corolla.py`: Script de *web scraping* desenvolvido para burlar bloqueios anti-bot e extrair dados da plataforma.
-* `EDA_corolla.ipynb`: Jupyter Notebook contendo a Análise Exploratória de Dados, limpeza de *outliers* e sanitização matemática.
-* `dataset_corolla_sp_bruto.csv`: Dataset original com os dados recém-extraídos.
-* `dataset_corolla_limpo_ML.csv`: Dataset processado e formatado para o treinamento da IA.
-* `Relatorio_N1.pdf`: Documentação acadêmica detalhando justificativa, metodologia e aspectos éticos (LGPD).
+O mercado de usados sofre de assimetria de informação e ferramentas estáticas como a Tabela FIPE falham ao não considerar a quilometragem exata, a liquidez de certas versões e o estado real do veículo. Nossa solução extrai dados diretamente do mercado via consumo de API para criar um precificador inteligente, superando as limitações do web scraping tradicional.
 
-### Dataset Inicial. `dataset_corolla_sp_bruto.csv`
-Arquivo gerado diretamente pelo script de *web scraping*. Contém os dados em estado bruto, exatamente como foram renderizados no HTML da plataforma, incluindo ruídos, caracteres especiais e formatos inconsistentes.
-* **Ano:** String composta (ex: `2023/2024`).
-* **Quilometragem:** String com sufixo (ex: `75.000 Km`).
-* **Preco:** String com prefixo e pontuação (ex: `R$ 133.900`).
+🛠️ Tecnologias Utilizadas
+Engenharia de Dados (Extração Dinâmica): Python, requests, JSON Parsing (Contorno de bloqueios via injeção de Headers e Cookies).
 
-### Dataset Limpo. `dataset_corolla_limpo_ML.csv`
-Dataset higienizado e rigorosamente tipado, pronto para o consumo do framework de Machine Learning na N2. 
-* **Tratamento:** Remoção de *outliers* (preços irreais ou fora do padrão do mercado de sedãs) e linhas com dados faltantes (`N/A`).
-* **Features de Treinamento (Novas Colunas Numéricas):**
-  * `Preco_Limpo`: Variável Alvo (*Target*). Numérico inteiro, sem símbolos (ex: `133900`).
-  * `KM_Limpo`: Feature de desgaste. Numérico inteiro (ex: `75000`).
-  * `Ano_Modelo`: Feature temporal. Numérico inteiro extraído da string original para cálculo da curva de depreciação (ex: `2024`).
+Processamento e Limpeza (ETL): Pandas, Expressões Regulares (Regex).
 
-## 📊 Resultados da Fase 1 (N1)
-Durante a Análise Exploratória de Dados, higienizamos os dados comerciais e comprovamos estatisticamente a correlação negativa entre a variável "Quilometragem" e o "Preço", validando a viabilidade de treinamento do modelo de regressão para a próxima etapa.
+Validação Estatística: Cálculo de Limites Lógicos e IQR (Intervalo Interquartil).
+
+Visualização de Dados: Matplotlib, Seaborn.
+
+Machine Learning (Fase N2): Scikit-Learn (A implementar).
+
+📂 Arquitetura do Repositório
+Abandonamos o scraping frágil via simuladores de navegador e construímos um pipeline de dados (ETL) em duas etapas sólidas:
+
+main.py: O Motor de Extração. Script autônomo que varre a API invisível da plataforma, contorna paginações, filtra ativamente anúncios indesejados (patrocinados de outros estados ou carrocerias) e salva os dados brutos em lotes.
+
+processamento.py: O Pipeline de Limpeza e Validação. Script unificado que consome a base bruta, remove lixo de formatação, aplica tipagem rigorosa, remove valores nulos e executa o corte de outliers estatísticos e mercadológicos.
+
+Relatorio_N1.pdf: Documentação acadêmica detalhando justificativa, metodologia e aspectos éticos.
+
+📁 Estrutura dos Datasets
+1. Dataset Inicial: COROLLA_SP_BRUTO.csv
+Arquivo gerado diretamente pelo motor de extração (main.py). Contém os dados do mercado paulista em estado bruto, exatamente como devolvidos pela API, incluindo informações redundantes e formatações inconsistentes (como espaços em branco e colunas de texto puramente descritivas).
+
+2. Dataset Limpo: COROLLA_SP_ML_FINAL.csv
+Dataset higienizado e rigorosamente tipado pelo processamento.py, pronto para o consumo do framework de Inteligência Artificial na N2.
+
+Limpeza Básica: Remoção de anúncios duplicados e conversão de textos para números reais (int e float).
+
+Tratamento de Outliers: Aplicação do método estatístico IQR para Preco_Real e Quilometragem, garantindo a remoção de valores irreais sem distorcer a curva matemática do mercado de sedãs.
+
+Regras de Negócio Inseridas: Exclusão de veículos listados abaixo de 50% ou acima de 150% da Tabela FIPE (caracterizados como fraude, sinistro ou erro da plataforma).
+
+Otimização de Features: Descarte de colunas puramente descritivas (Marca, Modelo, Estado) para entregar um dataset enxuto focado apenas nas variáveis que influenciam o algoritmo de regressão.
+
+📊 Resultados da Fase 1 (N1)
+O pipeline de dados provou ser escalável e imune a quebras de HTML. Higienizamos os dados comerciais reais de São Paulo e garantimos um dataset sem ruídos, comprovando estatisticamente a correlação negativa entre a variável de desgaste ("Quilometragem") e a Variável Alvo ("Preço"), validando totalmente a viabilidade do modelo preditivo para a próxima etapa.
