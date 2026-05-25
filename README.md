@@ -95,12 +95,12 @@ O projeto foi desenvolvido em conformidade com os princípios da **LGPD (Lei Ger
 
 ## 👥 Integrantes e Responsabilidades
 
-| Integrante | RA | Turma | Responsabilidade Principal |
-|------------|-----|-------|----------------------------|
-| Gabriel Neman Silva | 10403348 | 7K | Coleta de dados (API REST) |
-| Gabriel Pastorelli | 10419046 | 7K | Processamento e limpeza (ETL) |
-| Nicolas Gonçalves | 10418047 | 7K | Treinamento do modelo |
-| Nicolai Zeroshenko | 10417221 | 7J | Interface e validação |
+| Integrante | RA | Turma |
+|------------|-----|-------|
+| Gabriel Neman Silva | 10403348 | 7K | 
+| Gabriel Pastorelli | 10419046 | 7K | 
+| Nicolas Gonçalves | 10418047 | 7K | 
+| Nicolai Zeroshenko | 10417221 | 7J |
 
 **Orientador:** Prof. Dr. Leandro Zerbinatti
 **Instituição:** Universidade Presbiteriana Mackenzie — Faculdade de Computação e Informática (FCI)
