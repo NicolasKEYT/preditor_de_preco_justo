@@ -100,7 +100,7 @@ O projeto foi desenvolvido em conformidade com os princípios da **LGPD (Lei Ger
 | Gabriel Neman Silva | 10403348 | 7K | 
 | Gabriel Pastorelli | 10419046 | 7K | 
 | Nicolas Gonçalves | 10418047 | 7K | 
-| Nicolai Zeroshenko | 10417221 | 7J |
+| Nicolai Jeroshenko | 10417221 | 7J |
 
 **Orientador:** Prof. Dr. Leandro Zerbinatti
 **Instituição:** Universidade Presbiteriana Mackenzie — Faculdade de Computação e Informática (FCI)
