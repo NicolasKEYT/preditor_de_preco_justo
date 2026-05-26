@@ -19,18 +19,18 @@
 import pandas as pd
 import joblib
 
-# ==============================================================================
+
 # 1. CARREGAR OS DADOS E O MODELO
-# ==============================================================================
+
 print("⏳ Ligando o motor da IA e lendo o mercado...")
 modelo = joblib.load('modelo_corolla.pkl')
 colunas_treinamento = joblib.load('colunas_treinamento.pkl')
 
 df_base = pd.read_csv('COROLLA_SP_ML_FINAL.csv', usecols=['Ano_Fabricacao', 'Ano_Modelo', 'Versao', 'Cambio'])
 
-# ==============================================================================
+
 # 2. INTERFACE NO TERMINAL (MENU INTERATIVO)
-# ==============================================================================
+
 print("\n" + "="*50)
 print(" 🤖 PREDITOR DE PREÇO JUSTO: TOYOTA COROLLA ")
 print("="*50)
@@ -77,9 +77,9 @@ except (ValueError, IndexError):
     print("\n❌ ERRO: Você deve digitar números válidos correspondentes ao menu.")
     exit()
 
-# ==============================================================================
+
 # 3. PREPARAÇÃO DOS DADOS E PREVISÃO
-# ==============================================================================
+
 carro_consulta = {
     'Ano_Fabricacao': ano_fab,
     'Ano_Modelo': ano_mod,
@@ -94,9 +94,9 @@ df_carro = df_carro.reindex(columns=colunas_treinamento, fill_value=0)
 
 preco_estimado = modelo.predict(df_carro)[0]
 
-# ==============================================================================
+
 # 4. EXIBIÇÃO DO RESULTADO
-# ==============================================================================
+
 print("\n" + "="*50)
 print(" 🚗 RELATÓRIO FINAL DE AVALIAÇÃO ")
 print("="*50)
