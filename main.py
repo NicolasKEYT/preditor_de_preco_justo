@@ -23,9 +23,9 @@ import time
 import random
 import urllib.parse
 
-# ==============================================================================
+
 # 1. CONFIGURAÇÕES DA EXTRAÇÃO (Foco: Corolla Sedã no Estado de SP)
-# ==============================================================================
+
 # IMPORTANTE: Vá no site curlconverter.com/python, converta o seu cURL 
 # e cole os blocos de cookies e headers atualizados aqui dentro.
 
@@ -59,9 +59,9 @@ headers = {
 
 response = requests.get('https://www.webmotors.com.br/api/filter/car/LocationSearch', cookies=cookies, headers=headers)
 
-# ==============================================================================
+
 # 2. MOTOR DE EXTRAÇÃO ISOLADO
-# ==============================================================================
+
 dados_extraidos = []
 
 sessao = requests.Session()
@@ -133,7 +133,7 @@ while True:
         tempo_espera = random.uniform(2.5, 5.5)
         time.sleep(tempo_espera)
         
-        # A cada 15 páginas, o robô toma um "café" de 20 segundos
+        # A cada 15 páginas, o robô faz uma pausa de 20 segundos
         if pagina % 15 == 0:
             print("☕ Pausa longa de 20 segundos para esfriar o IP e burlar o anti-bot...")
             time.sleep(20)
@@ -144,9 +144,9 @@ while True:
         print(f"❌ Falha crítica no sistema de rede: {e}")
         break
 
-# ==============================================================================
+
 # 3. EXPORTAÇÃO DINÂMICA (Modo Append)
-# ==============================================================================
+
 if dados_extraidos:
     df = pd.DataFrame(dados_extraidos)
     
