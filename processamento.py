@@ -18,9 +18,9 @@
 # ============================================================================
 import pandas as pd
 
-# ==============================================================================
+
 # CONFIGURAÇÕES DE ENTRADA E SAÍDA
-# ==============================================================================
+
 nome_arquivo_entrada = 'COROLLA_SP_BRUTO.csv'
 nome_arquivo_saida   = 'COROLLA_SP_ML_FINAL.csv'
 
@@ -30,9 +30,9 @@ df = pd.read_csv(nome_arquivo_entrada, dtype=str)
 linhas_originais = len(df)
 print(f"📊 Linhas originais carregadas: {linhas_originais}")
 
-# ==============================================================================
+
 # ETAPA 1: LIMPEZA BÁSICA E TIPAGEM
-# ==============================================================================
+
 print("\n🧹 [Etapa 1] Limpeza de dados nulos, duplicatas e conversão de tipos...")
 
 df = df[df['Marca'] != 'Marca'] # Remove cabeçalhos perdidos no meio da tabela
@@ -59,9 +59,9 @@ df['Quilometragem']  = df['Quilometragem'].astype(int)
 linhas_pos_limpeza = len(df)
 print(f" ✔ Linhas após limpeza básica: {linhas_pos_limpeza}")
 
-# ==============================================================================
+
 # ETAPA 2: TRATAMENTO DE OUTLIERS (ESTATÍSTICA E LÓGICA)
-# ==============================================================================
+
 print("\n🔍 [Etapa 2] Removendo outliers estatísticos (IQR) e limites lógicos...")
 
 def remover_outliers_iqr(dataframe, coluna):
@@ -91,17 +91,15 @@ df = df[(df['Percentual_FIPE'] >= 50) & (df['Percentual_FIPE'] <= 150)]
 removidas_fipe = antes_fipe - len(df)
 print(f" ✔ Percentual_FIPE — removidos: {removidas_fipe}")
 
-# ==============================================================================
 # ETAPA 3: DROP DE COLUNAS REDUNDANTES PARA O MODELO DE ML
-# ==============================================================================
+
 print("\n✂️ [Etapa 3] Removendo colunas desnecessárias para a IA...")
 # Como o dataset é focado apenas em Corollas Sedã em SP, essas strings não servem para a matemática da regressão
 colunas_para_dropar = ['ID_Anuncio', 'Marca', 'Modelo', 'Carroceria', 'Estado']
 df.drop(columns=colunas_para_dropar, inplace=True, errors='ignore')
 
-# ==============================================================================
 # ETAPA 4: SALVAMENTO DO DATASET FINAL
-# ==============================================================================
+
 df.to_csv(nome_arquivo_saida, index=False, encoding='utf-8-sig')
 
 total_lixo = linhas_originais - linhas_pos_limpeza
