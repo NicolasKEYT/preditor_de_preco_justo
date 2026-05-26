@@ -9,7 +9,7 @@ Este projeto desenvolve um modelo de Machine Learning (Regressão) capaz de esti
 
 O mercado de usados sofre de assimetria de informação, e ferramentas estáticas como a Tabela FIPE falham ao não considerar a quilometragem exata, a liquidez de versões específicas e o estado real do veículo. Nossa solução extrai dados diretamente do mercado via consumo de API REST interna, processa estatisticamente, e treina um modelo Random Forest que aprende a função de depreciação real do mercado.
 
-## 🏆 Resultados Principais (N2 — entregue)
+## 🏆 Resultados Principais 
 
 - **R² (precisão geral): 93,96%** — o modelo explica ~94% da variância de preço
 - **MAE (erro médio): R$ 5.619,09** — desvio médio entre preço previsto e real
@@ -106,5 +106,4 @@ O projeto foi desenvolvido em conformidade com os princípios da **LGPD (Lei Ger
 **Instituição:** Universidade Presbiteriana Mackenzie — Faculdade de Computação e Informática (FCI)
 
 ## 🎥 Vídeo de Apresentação
-
-[INSERIR LINK DO YOUTUBE APÓS GRAVAÇÃO]
+[https://youtu.be/L0-sKSWZ5mA](url)
